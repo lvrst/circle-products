@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$font: 'Roboto', sans-serif;
+
+@mixin clickable {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@mixin main-title {
+    font-size: 1.5rem;
+    @include media-min('tablet-up') {
+        font-size: 2.25rem;
+    }
+    font-weight: bold;
+    text-align: center;
+}
+
+@mixin secondary-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

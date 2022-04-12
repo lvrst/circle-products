@@ -1,0 +1,92 @@
+.sidebar {
+    background-color: $primary-color;
+    color: $white;
+    width: calc(100% - 50px);
+    height: 100vh;
+    padding: 50px;
+    position: fixed;
+    overflow: visible;
+    left: calc(-100% - 50px);
+    z-index: 70;
+    transition: transform .3s;
+    &.open {
+        transform: translate(100%);
+        &>.sidebar__toggler {
+            left: 0;
+        }
+        &>.sidebar__header {
+            left: -25px;
+        }
+    }
+    &__toggler {
+        z-index: 75;
+        padding: 5px 9px;
+        font-size: 2.75rem;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transition: left .3s;
+    }
+    &__header {
+        z-index: 75;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        padding: 2px 0;
+        left: calc(100% - 25px);
+        background-color: $primary-color;
+        transition: left .3s;
+            &__logo {
+            margin: 0 auto;
+            width: 174px;
+            height: 61px;
+            background-image: url(#{$assetPath}/Logo.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    @include media-min('tablet-up') {
+        width: 250px;
+        position: fixed;
+        left: 0;
+        height: 100%;
+        &__toggler {
+            display: none;
+        }
+        &__header {
+            position: static;
+            background-color: transparent;
+            &__logo {
+                width: 174px;
+                height: 61px;
+            }
+        }
+    }
+    &__list {
+        list-style: none;
+        padding: 0;
+        &__item {
+            padding: 50px 0 0 0;
+            & > a {
+                color: $white;
+            }
+            &[data-selected="true"] {
+                list-style: inside;
+            }
+            
+        }
+        hr {
+            border: 1px solid white;
+            border-bottom: none;
+            margin: 50px 0 0 0;
+        }
+    }
+}
+
+@-moz-document url-prefix() { 
+    .sidebar__header__logo {
+        background-image: url(#{$assetPath}/MozLogo.svg);
+    }
+}

@@ -1,0 +1,55 @@
+main {
+    margin: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: $bg-light;
+    flex-grow: 1;
+    max-width: 1570px;
+    min-height: 100vh;
+    margin-top: 65px;
+    h1 {
+        @include main-title;
+        color: $primary-color;
+    }
+    h2 {
+        display: none;
+    }
+    @include media-min('tablet-up') {
+        min-width: 550px;
+        padding: 0 50px 0 400px;
+        margin: 0;
+        border-radius: 0;
+        h1 {
+            margin: 0;
+            padding: 4.25rem 1.2rem 3rem 1.2rem;
+        }
+        h2 {
+            display: block;
+            color: $primary-color;
+            @include secondary-title;
+            margin-top: 0;
+        }
+    }
+    .precision {
+        font-weight: normal;
+    }
+    
+    .badge {
+        color: $white;
+        padding: 5px 13px 7px 13px;
+        border-radius: 17px;
+        white-space: nowrap;
+        &.jewelery {
+            background-color: #32B436;
+        }
+        &.mens-clothing {
+            background-color: #FFA846;
+        }
+        &.womens-clothing {
+            background-color: #B43232;
+        }
+        &.electronics {
+            background-color: #ec4caa;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+table {
+    padding: 0 25px;
+    width: 100%;
+    text-align: center;
+    tr {
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: $white;
+        box-shadow: 0 2px 5px $black-shadow;
+        border-radius: 3px;
+        td {
+            color: $neutral;
+            padding: 0 20px;
+            margin: 8px;
+            
+        }
+    }
+    thead {
+        display: block;
+        tr {
+            padding: 0;
+        }
+        th {
+            color: $white;
+            padding: 0;
+            background: $primary-color  0% 0% no-repeat padding-box;
+            cursor: pointer;
+            &.down::after {
+                content: ' ▾';
+            }
+            &.up::after {
+                content: ' ▴';
+            }
+            &:first-of-type {
+                border-radius: 3px 3px 0 0;
+                padding-top: 5px;
+            }
+            &:last-of-type {
+                border-radius: 0 0 3px 3px;
+                padding-bottom: 5px;
+            }
+        }
+    }
+    .price-tag {
+        &::after {
+            content: '€';
+        }
+        &[data-detail]:after {
+            content: '€ ' attr(data-detail);
+        }
+    }
+    border-collapse: separate; 
+    border-spacing: 0 1em;
+    margin: 0 auto;
+    @include media-min('tablet-up') {
+        padding: 0;
+        text-align: unset;
+        max-width: calc(100vw - 350px);
+        thead {
+            display: table-header-group;
+        }
+        tr {
+            width: unset;
+            display: table-row;
+            padding: 0;
+            margin: 0;
+            th {
+                color: $white;
+                padding: 0 20px;
+                background: $primary-color  0% 0% no-repeat padding-box;
+                height: 4rem;
+                cursor: pointer;
+                &.down::after {
+                    content: ' ▾';
+                }
+                &.up::after {
+                    content: ' ▴';
+                }
+                &:first-of-type {
+                    border-radius: 3px 0  0 3px;
+                }
+                &:last-of-type {
+                    border-radius: 0 3px  3px 0;
+                }
+            }
+            td {
+                height: 4rem;
+                &:first-of-type {
+                    max-width: 700px;
+                    > a {
+                        @include clickable;
+                        color: $neutral;
+                    }
+                }
+            }
+        }
+        .price-tag {
+            text-align: right;
+            &[data-detail]:after {
+                content: '€';
+            }
+        }
+    }
+}

@@ -1,0 +1,147 @@
+.back-button {
+    display: block;
+    margin: 10px 0 0 10px;
+    @include media-min('tablet-up') {
+        display: inline;
+        margin: 0;
+        position: absolute;
+        top: 4.25rem;
+        z-index: 100;
+        background: transparentize($white, .5);
+        padding: 9px;
+        border-radius: 50px;
+        background: unset;
+        padding: 0;
+    }
+}
+.details {
+    &__content {
+        margin: 5px;
+        border-radius: 17px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px $black-shadow;
+        padding-bottom: 1rem;
+        color: $neutral;
+        background-color: $white;
+        &__pic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $white;
+            margin: 0;
+            &__img {
+                max-width: 50%;
+                max-height: 50%;
+            }
+        }
+        &__info {
+            text-align: center;
+            &__category div, &__description p, &__price {
+                margin: 1rem;
+            }
+            &__price {
+                &__field {
+                    border: none;
+                    padding: 0;
+                    position: relative;
+                    &__input {
+                        color: $neutral;
+                        border: 1px solid $primary-color;
+                        border-radius: 3px;
+                        font-size: 1rem;
+                        padding: 9px;
+                        width: calc(100% - 25px);
+                    }
+                    &__legend {
+                        color: $neutral;
+                        width: 144px;
+                        position: absolute;
+                        top: .25rem;
+                        right: 2.25rem;
+                        width:fit-content;
+                    }
+                    &__label {
+                        font-weight: bold;
+                    }
+                }
+                &__button {
+                    margin-top: 18px;
+                    color: $white;
+                    background-color: $primary-color;
+                    padding: 9px 14px 10px 13px;
+                    border: none;
+                    border-radius: 3px;
+                    font-size: 1rem;
+                    width: 100%;
+                    &:disabled {
+                        background-color: $neutral;
+                    }
+                }
+            }
+        }
+        @include media-min('tablet-up') {
+            border-radius: 0;
+            background-color: transparent;
+            margin-top: 11.75rem;
+            box-shadow: none;
+            padding-bottom: 0;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 40px;
+            overflow: visible;
+            &__pic {
+                flex: 1 1 0;
+                min-width: 300px;
+                min-height: 300px;
+                height: calc(50vw - 350px);
+                box-shadow: 0 2px 5px $black-shadow;
+            }
+            &__info {
+                text-align: justify;
+                flex: 1 1 0;
+                display: flex;
+                flex-flow: row wrap;
+                gap: 20px;
+                &__category div, &__description p, &__price {
+                    margin: 0;
+                }
+                &__description {
+                    max-width: 30rem;
+                    flex: 60%;
+                }
+                &__category {
+                    flex: 10%;
+                }
+                &__price {
+                    flex: 60%;
+                    max-width: 30rem;
+                    &__field {
+                        display: flex;
+                        align-items: center;
+                        &__legend {
+                            top: calc(50% - .5rem);
+                            left: 7.25rem;
+                        }
+                        &__label {
+                            margin-left: auto;
+                        }
+                        &__input {
+                            width: 144px;
+                        }
+                    }
+                    &__button {
+                        cursor: pointer;
+                        margin-top: 40px;
+                        width: auto;
+                        &:disabled {
+                            cursor: not-allowed;
+                            background-color: $neutral;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
